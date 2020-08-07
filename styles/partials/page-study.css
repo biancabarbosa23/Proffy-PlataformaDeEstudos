@@ -1,0 +1,269 @@
+#page-study #container{ /* container do body*/
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-header{ /* cabeça da pagina */
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header .top-bar-container{ /* Barra de navegação (seta e logo) */
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 0;
+}
+
+.page-header .top-bar-container a{ /* especificamento a seta de voltar da barra navegação*/
+    height: 3.2rem;
+    transition: opacity 0.2s;
+}
+
+.page-header .top-bar-container a:hover{ /*quando passar emcima da seta de voltar*/
+    opacity: 0.6;
+}
+
+.page-header .top-bar-container img{ /* especificamente as imagens de navegação (seta e logo) */
+    height: 1.6rem;
+}
+
+.page-header .header-content{ /* div do conteudo do header (form)*/
+    width: 90%;
+    margin: 3.2rem auto;
+    position: relative;
+}
+
+.page-header .header-content strong{ /* especificamente o texto do header*/
+    font: 700 3.6rem Archivo;
+    line-height: 4.2rem; /*espaçamento entre as linhas */
+    color: var(--color-title-in-primary);
+}
+
+#search-teachers{ /* todo o formulario */
+    margin-top: 3.2rem;
+}
+
+#search-teachers label{ /*especificamento os labels do form */
+    color: var(--color-text-in-primary);
+}
+
+#search-teachers .select-block{ /* entre as divs da clase search */
+    margin-bottom: 1.4rem;
+}
+
+#search-teachers button{ /*especificamento no botão do form */
+    width: 100%;
+    height: 5.6rem;
+    background: var(--color-secondary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.6rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0,2s; 
+    margin-top: 3.2rem;
+}
+
+#search-teachers button:hover{ /*quando passa emcima do botão do form */
+    background-color: var(--color-secondary-dark);
+}
+
+.select-block label, 
+.input-block label{ /* label do form*/
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.input-block input,
+.select-block select{ /*especialmente os campos do formulario */
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0; /*linha de seleçãoda caixa */
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+.input-block{ /* div para horario */
+    position: relative; /*para conseguir colocar o nome contexto dentro desse*/
+}
+
+.input-block:focus-within::after{ /* criar um elemento html quando houver foco no form de horario */
+    content: '';
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    background: var(--color-primary-light);
+    position: absolute; /*cria um novo contexto, outro folha emcima da folha(pagina)*/
+    left: 1.6rem;
+    bottom: 0;
+}
+
+#page-study main{ /*todo conteudo da pagina principal */
+    margin: 3.2rem auto;
+    width: 90%;
+}
+
+.teacher-item{ /* artigo (cada professor) */
+    background: var(--color-box-base);
+    border: 1px solid var(--color-line-in-white);
+    border-radius: 0.8rem;
+    margin-top: 2.4rem;
+}
+
+.teacher-item header{ /*O cabeçalho do artigo (professor) */
+    padding: 3.2rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.teacher-item header img{ /* A imagem do cabeçalho do artigo (professor) */
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.teacher-item header div{ /* div do nome e materia do cabeçalho do professor */
+    margin-left: 2.4rem;
+}
+
+.teacher-item header div strong{ /* nome do professor */
+    font: 700 2.4rem Archivo;
+    display: block; /*para pegar a linha toda, o que está ao lado vai para baixo */
+    color: var(--color-text-title);
+}
+
+.teacher-item header div span{ /* materia do professor */
+    font-size: 1.6rem;
+    display:block;
+    margin-top: 0.4rem; /*só irá alterar se o display for block (ocupa a linha inteira) */
+}
+
+.teacher-item > p{ /*paragrafo sobre o professor */
+    padding: 0 2rem;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+}
+
+.teacher-item footer{ /* o rodapé do artigo (professor) */
+    padding: 3.2rem 2rem;
+    background-color: var(--color-box-footer);
+    border-top: 1px solid var(--color-line-in-white);
+    margin-top: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-item footer p{ /* especificamente o paragrafo preço/hora */
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: var(--color-text-complement);
+}
+
+.teacher-item footer p strong{ /* especificamente o texto em negrito (valor) */
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    display: block;
+}
+
+.teacher-item footer button{ /* especialmente o botão do rodapé do arquivo (professor)*/
+    width: 20rem;
+    height: 5.6rem;
+    background: var(--color-secondary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.4rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* espaçamento constante*/
+    text-decoration: none;
+    transition: background 0.2s; /* transição de fundo*/
+    margin-left: 1.6rem;
+}
+
+.teacher-item footer button:hover{
+    background: var(--color-secondary-dark);
+}
+
+
+@media (min-width:700px){
+    #page-study #container{
+        max-width: 100vw;
+    }
+
+    .page-header{
+        height: 340px;
+    }
+
+    .page-header .top-bar-container{
+        max-width: 1100px;
+    }
+
+    .page-header .header-content{
+        max-width: 740px;
+        margin: 0 auto;
+        display: flex;
+        flex: 1 1;
+        padding-bottom: 48px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .page-header .header-content strong{
+        max-width: 350px;
+    }
+
+    .teacher-item header,
+    .teacher-item footer{
+        padding: 32px;
+    }
+
+    #search-teachers{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        position: absolute;
+        bottom: -28px;
+    }
+
+    #page-study main{
+        padding: 32px 0;
+        max-width: 740px;
+        margin: 0 auto;
+    }
+
+    #search-teachers .select-block{
+        margin-bottom: 0;
+    }
+
+    .teacher-item > p{ /* o > serve para pegar o primeiro nivel*/
+        padding: 0 32px;
+    }
+
+    .teacher-item footer{
+        margin-left: 16px;
+    }
+
+    .teacher-item footer button{
+        width: 245px;
+        font-size: 16px;
+        justify-content: center;
+    }
+
+    .teacher-item footer button img{
+        margin-right: 16px;
+    }
+}
