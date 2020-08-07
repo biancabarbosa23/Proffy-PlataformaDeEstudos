@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-#page-give-classes .page-header .header-content{
+#page-give-classes .page-header .header-content{ /*conteudo do cabeçalho(textos)*/
     margin-bottom: 6.4rem;
 }
 
@@ -33,7 +33,7 @@
     border-bottom: 1px solid var(--color-line-in-white);
 }
 
-#page-give-classes fieldset legend button{
+#page-give-classes fieldset legend button{ /*botão da legenda */
     background:none;
     border: 0;
     color: var(--color-primary);
@@ -42,7 +42,7 @@
     transition: 0.2s;
 }
 
-#page-give-classes fieldset legend button:hover{
+#page-give-classes fieldset legend button:hover{ /*ação de passar emcima do botão*/
     transform: translateY(-5px); /*move para cima 5px*/
     color: var(--color-primary-dark);
 }
@@ -57,14 +57,14 @@
     margin-top: 2.4rem;
 }
 
-#page-give-classes main footer{
+#page-give-classes main footer{ /*rodapé*/
     padding: 4rem 2.4rem;
     background: var(--color-box-footer);
     border-top: 1px solid var(--color-line-in-white);
     margin-top: 6.4rem;
 }
 
-#page-give-classes main footer p{
+#page-give-classes main footer p{ /*especificamento o paragrafo do rodapé*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,11 +73,11 @@
     color: var(--color-text-complement);
 }
 
-#page-give-classes main footer p img{
+#page-give-classes main footer p img{ /*especificamente a img do paragrafo*/
     margin-right: 2rem;
 }
 
-#page-give-classes main footer button{
+#page-give-classes main footer button{ /*botão do rodapé*/
     width: 100%;
     height: 5.6rem;
     background: var(--color-secondary);
@@ -94,11 +94,11 @@
     margin-top: 3.2rem;
 }
 
-#page-give-classes main footer button:hover{
+#page-give-classes main footer button:hover{ /*ação no botão do rodapé*/
     background: var(--color-secondary-dark);
 }
 
-.schedule-item+.schedule-item{
+.schedule-item+.schedule-item{ /*schedule(horario) que há um schedule antes*/
     margin-top: 3.2rem;
     padding-top: 3.2rem;
     border-top: 1px solid var(--color-line-in-white);
