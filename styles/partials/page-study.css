@@ -3,46 +3,6 @@
     height: 100vh;
 }
 
-.page-header{ /* cabeça da pagina */
-    background-color: var(--color-primary);
-    display: flex;
-    flex-direction: column;
-}
-
-.page-header .top-bar-container{ /* Barra de navegação (seta e logo) */
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.6rem 0;
-}
-
-.page-header .top-bar-container a{ /* especificamento a seta de voltar da barra navegação*/
-    height: 3.2rem;
-    transition: opacity 0.2s;
-}
-
-.page-header .top-bar-container a:hover{ /*quando passar emcima da seta de voltar*/
-    opacity: 0.6;
-}
-
-.page-header .top-bar-container img{ /* especificamente as imagens de navegação (seta e logo) */
-    height: 1.6rem;
-}
-
-.page-header .header-content{ /* div do conteudo do header (form)*/
-    width: 90%;
-    margin: 3.2rem auto;
-    position: relative;
-}
-
-.page-header .header-content strong{ /* especificamente o texto do header*/
-    font: 700 3.6rem Archivo;
-    line-height: 4.2rem; /*espaçamento entre as linhas */
-    color: var(--color-title-in-primary);
-}
-
 #search-teachers{ /* todo o formulario */
     margin-top: 3.2rem;
 }
@@ -74,39 +34,6 @@
 
 #search-teachers button:hover{ /*quando passa emcima do botão do form */
     background-color: var(--color-secondary-dark);
-}
-
-.select-block label, 
-.input-block label{ /* label do form*/
-    font-size: 1.4rem;
-    color: var(--color-text-complement);
-}
-
-.input-block input,
-.select-block select{ /*especialmente os campos do formulario */
-    width: 100%;
-    height: 5.6rem;
-    margin-top: 0.8rem;
-    border-radius: 0.8rem;
-    background: var(--color-input-background);
-    border: 1px solid var(--color-line-in-white);
-    outline: 0; /*linha de seleçãoda caixa */
-    padding: 0 1.6rem;
-    font: 1.6rem Archivo;
-}
-
-.input-block{ /* div para horario */
-    position: relative; /*para conseguir colocar o nome contexto dentro desse*/
-}
-
-.input-block:focus-within::after{ /* criar um elemento html quando houver foco no form de horario */
-    content: '';
-    width: calc(100% - 3.2rem);
-    height: 2px;
-    background: var(--color-primary-light);
-    position: absolute; /*cria um novo contexto, outro folha emcima da folha(pagina)*/
-    left: 1.6rem;
-    bottom: 0;
 }
 
 #page-study main{ /*todo conteudo da pagina principal */
@@ -253,9 +180,10 @@
         padding: 0 32px;
     }
 
-    .teacher-item footer{
+    .teacher-item footer p strong {
+        display: initial;
         margin-left: 16px;
-    }
+      }
 
     .teacher-item footer button{
         width: 245px;

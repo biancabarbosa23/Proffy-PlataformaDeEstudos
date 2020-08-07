@@ -1,0 +1,45 @@
+.select-block label, 
+.input-block label,
+.textarea-block label
+{ /* label do form*/
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.input-block input,
+.select-block select,
+.textarea-block textarea
+{ /*especialmente os campos do formulario */
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0; /*linha de seleçãoda caixa */
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+.textarea-block textarea{
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+    resize: vertical;
+}
+
+.input-block,
+.textarea-block{ /* div para horario */
+    position: relative; /*para conseguir colocar o nome contexto dentro desse*/
+}
+
+.input-block:focus-within::after,
+.textarea-block:focus-within::after
+{ /* criar um elemento html quando houver foco no form de horario */
+    content: '';
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    background: var(--color-primary-light);
+    position: absolute; /*cria um novo contexto, outro folha emcima da folha(pagina)*/
+    left: 1.6rem;
+    bottom: 0;
+}
