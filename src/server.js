@@ -1,56 +1,3 @@
-//Lista de Objetos
-
-const proffys = [
-    {
-        name: "Diego Fernandes", 
-        avatar: "https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4",
-        whatsapp: "015999999999", 
-        bio: "Entusiasta das melhores tecnologias de química avançada. " +
-        "Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. " +
-        "Mais de 200.000 pessoas já passaram por uma das minhas explosões", 
-        subject: "Química", 
-        cost: "20",
-        weekday: [0], 
-        time_from: [720], 
-        time_to: [1220]
-    },
-
-    {
-        name: "Lucas de Moraes", 
-        avatar: "https://scontent.fsod2-1.fna.fbcdn.net/v/t1.0-9/92354819_3735552533185611_6324541271247421440_o.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=dFRL-eR3_DUAX-tmd1S&_nc_ht=scontent.fsod2-1.fna&oh=14f39b1236338c793b7d3c5084eec0ce&oe=5F559AD0",
-        whatsapp: "015997703000", 
-        bio: "Sou lindo e namoro uma programadora maravilhosa", 
-        subject: "Designer", 
-        cost: "50",
-        weekday: [0], 
-        time_from: [720], 
-        time_to: [1220]
-    }  
-]
-
-const subjects = [
-    "Artes",
-    "Biologia",
-    "Ciências",
-    "Educação física",
-    "Física",
-    "Geografia",
-    "História",
-    "Matemática",
-    "Português",
-    "Química"
-]
-
-const weekdays = [
-    "Domingo",
-    "Segunda-feira",
-    "Terça-feira",
-    "Quarta-feira",
-    "Quinta-feira",
-    "Sexta-feira",
-    "Sábado"
-]
-
 /*
     1°) Criação dos modulos
         A) $ npm init -y  --> criação do package.json(configurações do projeto)
@@ -58,38 +5,9 @@ const weekdays = [
         C) $ npm install nunjucks --> template engine
 */
 
- // 2°) Criação do servidor
-
-function getSubject(subjectNumber){
-    const position = +subjectNumber - 1
-    return subjects[position]
-}
-
- function pageLanding(req, res){
-    return res.render("index.html")  // retorna a pagina inicial para o navegador
-}
-
-function pageStudy(req, res){ 
-    const filters = req.query //pegando dados que o formulario enviou
-    return res.render("study.html", {proffys, filters, subjects, weekdays})  // retorna a pagina estudar para o navegador com os dados do objeto proffys (obs: não esquecer de tirar o .html do botão)
-}
-
-function pageGiveClasses(req, res){ 
-    const data = req.query
-    const isNotEmpty = Object.keys(data).length > 0
-
-    data.subject = getSubject(data.subject)
-    //adicionando os dados a lista de proffys
-    if(isNotEmpty){
-        proffys.push(data)
-        return res.redirect("/study")
-    }
-
-    return res.render("give-classes.html", {subjects, weekdays} )  // retorna a pagina dar aula para o navegador
-}
-
 const express = require('express') //importando express
 const server = express()
+const {pageLanding, pageStudy, pageGiveClasses} = require('./pages') //importando os objetos e funcões de pages 
 const nunjucks = require('nunjucks') //inportando nunjucks
 
 //configuração do nunjucks

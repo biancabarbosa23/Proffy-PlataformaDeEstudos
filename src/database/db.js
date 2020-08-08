@@ -2,13 +2,11 @@
 // $ npm src/database/db.js  ---> executar o database  
 
 const Database = require('sqlite-async')  //importando o sqlite
-Database.open(__dirname + '/database.sqlite')  //abrindo o banco de dados
-.then(execute) //se abriu então chama a função execute
 
 function execute(db){
 
     //Criar as tabelas do BD
-    db.exec(`
+    return db.exec(`
         CREATE TABLE IF NOT EXISTS proffys (  
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
@@ -19,7 +17,7 @@ function execute(db){
 
         CREATE TABLE IF NOT EXISTS classes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            subject TEXT,
+            subject INTEGER,
             cost TEXT,
             proffy_id INTEGER
         );
@@ -33,3 +31,7 @@ function execute(db){
         );
     `)
 }
+
+//module.exports recebendo os dados para mandar a outros arquivos
+module.exports =  Database.open(__dirname + '/database.sqlite')  //abrindo o banco de dados
+.then(execute) //se abriu então chama a função execute

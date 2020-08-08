@@ -62,6 +62,13 @@
 
         <main>
 
+
+            {% if proffys == "" %}
+
+            <p class="no-results"> Nenhum professor encontrado com sua pesquisa.</p>
+
+            {%else%}
+
             {%for proffy in proffys%} <!---For fornecido por conta do nunjucks (template engine)-->
 
                 <article class="teacher-item">
@@ -87,6 +94,8 @@
                 </article>
 
             {%endfor%}
+
+            {%endif%}
             
         </main>
     </div>
