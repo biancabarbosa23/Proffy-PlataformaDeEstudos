@@ -28,6 +28,29 @@ const proffys = [
     }  
 ]
 
+const subjects = [
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Educação física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química"
+]
+
+const weekdays = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado"
+]
+
 /*
     1°) Criação dos modulos
         A) $ npm init -y  --> criação do package.json(configurações do projeto)
@@ -36,16 +59,33 @@ const proffys = [
 */
 
  // 2°) Criação do servidor
+
+function getSubject(subjectNumber){
+    const position = +subjectNumber - 1
+    return subjects[position]
+}
+
  function pageLanding(req, res){
     return res.render("index.html")  // retorna a pagina inicial para o navegador
 }
 
 function pageStudy(req, res){ 
-    return res.render("study.html", {proffys})  // retorna a pagina estudar para o navegador com os dados do objeto proffys (obs: não esquecer de tirar o .html do botão)
+    const filters = req.query //pegando dados que o formulario enviou
+    return res.render("study.html", {proffys, filters, subjects, weekdays})  // retorna a pagina estudar para o navegador com os dados do objeto proffys (obs: não esquecer de tirar o .html do botão)
 }
 
 function pageGiveClasses(req, res){ 
-    return res.render("give-classes.html")  // retorna a pagina dar aula para o navegador
+    const data = req.query
+    const isNotEmpty = Object.keys(data).length > 0
+
+    data.subject = getSubject(data.subject)
+    //adicionando os dados a lista de proffys
+    if(isNotEmpty){
+        proffys.push(data)
+        return res.redirect("/study")
+    }
+
+    return res.render("give-classes.html", {subjects, weekdays} )  // retorna a pagina dar aula para o navegador
 }
 
 const express = require('express') //importando express
