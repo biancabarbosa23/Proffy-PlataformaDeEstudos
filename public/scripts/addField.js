@@ -16,3 +16,4 @@ function cloneField(){
     //dizendo onde sera clonado e o vai ser feito
     document.querySelector('#schedule-items').appendChild(newfieldContainer)
 }
+
