@@ -7,20 +7,22 @@
 
 const express = require('express') //importando express
 const server = express()
-const {pageLanding, pageStudy, pageGiveClasses} = require('./pages') //importando os objetos e funcões de pages 
+const {pageLanding, pageStudy, pageGiveClasses, saveClasses} = require('./pages') //importando os objetos e funcões de pages 
 const nunjucks = require('nunjucks') //inportando nunjucks
 
 //configuração do nunjucks
 nunjucks.configure('src/views', {
     express: server,
     noCache: true,
-
 })
 
-server.use(express.static("public")) //use = configurações do server (executando os arquivos de css/script da pagina)
+server
+.use(express.urlencoded({extended: true})) //receber dados do req body
+.use(express.static("public")) //use = configurações do server (executando os arquivos de css/script da pagina)
 .get("/", pageLanding) //achar a rota do barra 
 .get("/study", pageStudy) //achar a rota do barra estudar
 .get("/give-classes", pageGiveClasses)  //achar a rota do barra
+.post("/save-classes", saveClasses)
 
 .listen(5500) // 500 = numero da porta */
 
